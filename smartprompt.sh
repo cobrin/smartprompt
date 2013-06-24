@@ -57,8 +57,7 @@ function parse_git_branch {
 
 function prompt_func() {
     previous_return_value=$?;
-
-    # set variable identifying the chroot you work in (used in the prompt below)
+    # set variable identifying the environment (used in the prompt below)
     if [ -r /etc/debian_chroot ]
     then
         debian_chroot="$(cat /etc/debian_chroot 2> /dev/null)"

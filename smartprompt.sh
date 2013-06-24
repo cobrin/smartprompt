@@ -29,7 +29,6 @@ FG_RED_BG_WHITE="\[\033[1;31;47m\]"
       UNAME="$(id -un 2> /dev/null)"
 
 function parse_git_branch {
- 
   git rev-parse --git-dir &> /dev/null
   machinename="$(hostname 2> /dev/null)"
   git_status="$(git status 2> /dev/null)"

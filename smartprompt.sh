@@ -11,7 +11,7 @@
 ### --------------------------
 # smartprompt.sh
 
-# Define colors available
+# Definitions
         RED="\[\033[0;31m\]"
    BOLD_RED="\[\033[1;31m\]"
      YELLOW="\[\033[0;33m\]"
@@ -26,6 +26,7 @@ BOLD_YELLOW="\[\033[1;33m\]"
 BOLD_PURPLE="\[\033[1;35m\]"
  COLOR_NONE="\[\e[0m\]"
 FG_RED_BG_WHITE="\[\033[1;31;47m\]"
+      UNAME="$(id -un 2> /dev/null)"
 
 function parse_git_branch {
  
@@ -68,7 +69,7 @@ function prompt_func() {
         virtualenviro="$(showvirtualenv 2> /dev/null)"
         prompt="${FG_RED_BG_WHITE}$virtualenviro${COLOR_NONE} ${BOLD_YELLOW}$(hostname)${TITLEBAR}${BOLD_BLUE}[${BOLD_GREEN}\w${BOLD_BLUE}]${COLOR_NONE}"
     else
-        prompt="${BOLD_YELLOW}$(hostname)${BOLD_GREEN}$(parse_git_branch)${TITLEBAR}${BOLD_BLUE}[${BOLD_RED}\w${BOLD_BLUE}]${COLOR_NONE}"
+        prompt="${BOLD_YELLOW}$(hostname):${BOLD_RED}${UNAME}${BOLD_GREEN}$(parse_git_branch)${TITLEBAR}${BOLD_BLUE}[${BOLD_RED}\w${BOLD_BLUE}]${COLOR_NONE}"
     fi
 
     if test $previous_return_value -eq 0

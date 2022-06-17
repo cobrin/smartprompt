@@ -37,14 +37,14 @@ BOLD_PURPLE="\[\033[1;35m\]"
   BOLD_CYAN="\[\033[1;36m\]"
  COLOR_NONE="\[\e[0m\]"
 FG_RED_BG_WHITE="\[\033[1;31;47m\]"
-      UNAME="$(id -un 2> /dev/null)"
+      UNAME="$(id -u 2> /dev/null)"
 
 if [ ${UNAME} -eq 0 ]; then
-    USER_AT_HOST="${RED}\u${COLOR_NONE}@${BOLD_RED}\h${COLOR_NONE}"		# Steve's choice
-#   USER_AT_HOST="${RED}\u${COLOR_NONE}@${BOLD_YELLOW}\h${COLOR_NONE}"		# Ian's choice
+    USER_AT_HOST="${RED}\u${COLOR_NONE}@${BOLD_RED}\h${COLOR_NONE}"		# Style #1
+#   USER_AT_HOST="${RED}\u${COLOR_NONE}@${BOLD_YELLOW}\h${COLOR_NONE}"		# Style #2
         else
-    USER_AT_HOST="${CYAN}\u${COLOR_NONE}@${BOLD_CYAN}\h${COLOR_NONE}"		# Steve's choice
-#   USER_AT_HOST="${BOLD_GRAY}\u${COLOR_NONE}@${BOLD_YELLOW}\h${COLOR_NONE}"	# Ian's choice
+    USER_AT_HOST="${CYAN}\u${COLOR_NONE}@${BOLD_CYAN}\h${COLOR_NONE}"		# Style #1
+#   USER_AT_HOST="${BOLD_GRAY}\u${COLOR_NONE}@${BOLD_YELLOW}\h${COLOR_NONE}"	# Style #2
 fi
 
 function parse_git_branch {
@@ -91,9 +91,9 @@ function prompt_func() {
     previous_return_value=$?;
     # set variable identifying the environment (used in the prompt below)
 
-#   prompt=					# Ian's choice
+#   prompt=					# Style #2
     # optional prompt with timestamp
-    prompt="[${GREEN}\t${COLOR_NONE}|"		# Steve's choice
+    prompt="[${GREEN}\t${COLOR_NONE}|"		# Style #1
 
     # rejig setting of prompt to not do it all in one go
     # btw. TITLEBAR doesn't seem to be set anywhere!
@@ -118,8 +118,8 @@ function prompt_func() {
         prompt="${prompt}${USER_AT_HOST}"
         # display where we are
         prompt="${prompt}${BOLD_GREEN}$(parse_git_branch)${COLOR_NONE}${TITLEBAR}"
-#       prompt="${prompt}[\w"			# Ian's choice
-        prompt="${prompt}:\w"			# Steve's choice
+#       prompt="${prompt}[\w"			# Style #2
+        prompt="${prompt}:\w"			# Style #1
     fi
     prompt="${prompt}]"
 
